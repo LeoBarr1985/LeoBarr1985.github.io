@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+{% assign nm = site.data.profile | where: "field", "name" | first %}
+{% assign ti = site.data.profile | where: "field", "title" | first %}
+<title>{{ nm.value | escape }} · {{ ti.value | escape }}</title>
+<meta name="description" content="Academic website of {{ nm.value | escape }}.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="page">
+<nav class="menu" aria-label="Main"><a href="#about">About</a><a href="#research">Research</a><a href="#cv">CV</a><a href="#teaching">Teaching</a><a class="cv" href="cv.pdf">Download CV</a></nav>
+<main>
+{{ content }}
+</main>
+<footer>&copy; {{ site.time | date: "%Y" }} {{ nm.value | escape }} · Website by <a href="https://cvtogit.github.io">CVtoGit</a></footer>
+</div>
+</body>
+</html>
